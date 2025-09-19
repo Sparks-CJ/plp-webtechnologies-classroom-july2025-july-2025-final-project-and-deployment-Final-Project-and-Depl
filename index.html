@@ -3,15 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AgriMarket — Marketplace & Advisory</title>
+  <title>WakulimaHub — Marketplace & Advisory</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <div class="brand"><a href="index.html">AgriMarket</a></div>
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/logo.png" alt="WakulimaHub Logo" class="logo">
+          WakulimaHub
+        </a>
+      </div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="marketplace.html">Marketplace</a>
         <a href="advisory.html">Advisory</a>
         <a href="contact.html">Contact</a>
@@ -22,43 +28,68 @@
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section class="hero container">
-      <h1>Grow more. Sell smarter.</h1>
-      <p>AgriMarket connects farmers, buyers and advisors — marketplace + farming guidance in one place.</p>
+      <h1>Empowering Farmers, Connecting Markets</h1>
+      <p>WakulimaHub links farmers, buyers, and advisors — a trusted marketplace with agricultural guidance in one place.</p>
       <div class="hero-actions">
         <a href="marketplace.html" class="btn">Explore Marketplace</a>
         <a href="advisory.html" class="btn ghost">Get Advisory</a>
       </div>
     </section>
 
+    <!-- Features Section -->
     <section class="container features">
       <article class="feature">
         <h3>Local & Trusted</h3>
-        <p>Buy and sell farm produce with verified listings.</p>
+        <p>Buy and sell farm produce with verified listings from farmers near you.</p>
       </article>
       <article class="feature">
-        <h3>Expert Advice</h3>
-        <p>Ask agronomists and receive tailored guidance.</p>
+        <h3>Peer-to-Peer Advisory</h3>
+        <p>Farmers and experts share knowledge for better yields and sustainability.</p>
       </article>
       <article class="feature">
-        <h3>Easy Payments</h3>
-        <p>In-app checkout simulation and order tracking.</p>
+        <h3>Simple Transactions</h3>
+        <p>Simulated payments and easy-to-use cart system for a smooth experience.</p>
       </article>
     </section>
 
+    <!-- Featured Products -->
     <section class="container preview">
       <h2>Featured Products</h2>
-      <div id="featured-list" class="grid"></div>
+      <div id="featured-list" class="grid">
+        <!-- Static examples to show up immediately -->
+        <div class="card">
+          <h4>Maize (50kg bag)</h4>
+          <p>KES 3,200</p>
+          <button class="btn add-to-cart" data-name="Maize" data-price="3200">Add to Cart</button>
+        </div>
+        <div class="card">
+          <h4>Tea (1kg)</h4>
+          <p>KES 600</p>
+          <button class="btn add-to-cart" data-name="Tea" data-price="600">Add to Cart</button>
+        </div>
+        <div class="card">
+          <h4>Dairy Milk (1L)</h4>
+          <p>KES 80</p>
+          <button class="btn add-to-cart" data-name="Dairy Milk" data-price="80">Add to Cart</button>
+        </div>
+        <div class="card">
+          <h4>Fertilizer (50kg)</h4>
+          <p>KES 4,500</p>
+          <button class="btn add-to-cart" data-name="Fertilizer" data-price="4500">Add to Cart</button>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 AgriMarket. Built for learning and demo purposes.</p>
+      <p>&copy; 2025 WakulimaHub. Built for learning and demo purposes.</p>
     </div>
   </footer>
 
-  <!-- Cart Modal (hidden by default) -->
+  <!-- Cart Modal -->
   <div id="cartModal" class="modal hidden">
     <div class="modal-inner">
       <h3>Your Cart</h3>
