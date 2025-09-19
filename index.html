@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AgriMarket — Marketplace & Advisory</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand"><a href="index.html">AgriMarket</a></div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="advisory.html">Advisory</a>
+        <a href="contact.html">Contact</a>
+        <button id="cartBtn" class="btn small">Cart (<span id="cartCount">0</span>)</button>
+      </nav>
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1>Grow more. Sell smarter.</h1>
+      <p>AgriMarket connects farmers, buyers and advisors — marketplace + farming guidance in one place.</p>
+      <div class="hero-actions">
+        <a href="marketplace.html" class="btn">Explore Marketplace</a>
+        <a href="advisory.html" class="btn ghost">Get Advisory</a>
+      </div>
+    </section>
+
+    <section class="container features">
+      <article class="feature">
+        <h3>Local & Trusted</h3>
+        <p>Buy and sell farm produce with verified listings.</p>
+      </article>
+      <article class="feature">
+        <h3>Expert Advice</h3>
+        <p>Ask agronomists and receive tailored guidance.</p>
+      </article>
+      <article class="feature">
+        <h3>Easy Payments</h3>
+        <p>In-app checkout simulation and order tracking.</p>
+      </article>
+    </section>
+
+    <section class="container preview">
+      <h2>Featured Products</h2>
+      <div id="featured-list" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 AgriMarket. Built for learning and demo purposes.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Modal (hidden by default) -->
+  <div id="cartModal" class="modal hidden">
+    <div class="modal-inner">
+      <h3>Your Cart</h3>
+      <div id="cartItems"></div>
+      <div class="cart-summary">
+        <span>Total:</span>
+        <strong id="cartTotal">0.00</strong>
+      </div>
+      <div class="modal-actions">
+        <button id="closeCart" class="btn ghost">Close</button>
+        <button id="checkoutBtn" class="btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
