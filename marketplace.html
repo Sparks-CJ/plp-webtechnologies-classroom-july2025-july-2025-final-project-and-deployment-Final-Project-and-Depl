@@ -3,51 +3,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Marketplace — AgriMarket</title>
+  <title>Marketplace — WakulimaHub</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <div class="brand"><a href="index.html">AgriMarket</a></div>
+      <div class="brand">
+        <a href="index.html"><img src="images/logo.png" alt="WakulimaHub Logo" class="logo"> WakulimaHub</a>
+      </div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
-        <a href="marketplace.html">Marketplace</a>
+        <a href="about.html">About</a>
+        <a href="marketplace.html" class="active">Marketplace</a>
         <a href="advisory.html">Advisory</a>
         <a href="contact.html">Contact</a>
-        <button id="cartBtnTop" class="btn small">Cart (<span id="cartCountTop">0</span>)</button>
+        <button id="cartBtn" class="btn small">Cart (<span id="cartCount">0</span>)</button>
       </nav>
-      <button id="menuToggle2" class="menu-toggle" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container page">
     <h1>Marketplace</h1>
-    <div class="controls">
-      <input id="searchInput" placeholder="Search products...">
-      <select id="categoryFilter">
-        <option value="all">All categories</option>
-        <option value="seeds">Seeds</option>
-        <option value="fertilizers">Fertilizers</option>
-        <option value="tools">Tools</option>
-      </select>
-    </div>
+    <p>Browse and purchase farm produce directly from local farmers.</p>
 
-    <div id="product-list" class="grid"></div>
+    <div class="grid">
+      <div class="card">
+        <h4>Maize (50kg bag)</h4>
+        <p>KES 3,200</p>
+        <button class="btn add-to-cart" data-name="Maize" data-price="3200">Add to Cart</button>
+      </div>
+      <div class="card">
+        <h4>Tea (1kg)</h4>
+        <p>KES 600</p>
+        <button class="btn add-to-cart" data-name="Tea" data-price="600">Add to Cart</button>
+      </div>
+      <div class="card">
+        <h4>Dairy Milk (1L)</h4>
+        <p>KES 80</p>
+        <button class="btn add-to-cart" data-name="Dairy Milk" data-price="80">Add to Cart</button>
+      </div>
+      <div class="card">
+        <h4>Fertilizer (50kg)</h4>
+        <p>KES 4,500</p>
+        <button class="btn add-to-cart" data-name="Fertilizer" data-price="4500">Add to Cart</button>
+      </div>
+    </div>
   </main>
 
-  <!-- reuse cart modal -->
-  <div id="cartModal2" class="modal hidden">
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 WakulimaHub</p>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal hidden">
     <div class="modal-inner">
       <h3>Your Cart</h3>
-      <div id="cartItems2"></div>
+      <div id="cartItems"></div>
       <div class="cart-summary">
         <span>Total:</span>
-        <strong id="cartTotal2">0.00</strong>
+        <strong id="cartTotal">0.00</strong>
       </div>
       <div class="modal-actions">
-        <button id="closeCart2" class="btn ghost">Close</button>
-        <button id="checkoutBtn2" class="btn">Checkout</button>
+        <button id="closeCart" class="btn ghost">Close</button>
+        <button id="checkoutBtn" class="btn">Checkout</button>
       </div>
     </div>
   </div>
