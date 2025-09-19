@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Marketplace — AgriMarket</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand"><a href="index.html">AgriMarket</a></div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="advisory.html">Advisory</a>
+        <a href="contact.html">Contact</a>
+        <button id="cartBtnTop" class="btn small">Cart (<span id="cartCountTop">0</span>)</button>
+      </nav>
+      <button id="menuToggle2" class="menu-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Marketplace</h1>
+    <div class="controls">
+      <input id="searchInput" placeholder="Search products...">
+      <select id="categoryFilter">
+        <option value="all">All categories</option>
+        <option value="seeds">Seeds</option>
+        <option value="fertilizers">Fertilizers</option>
+        <option value="tools">Tools</option>
+      </select>
+    </div>
+
+    <div id="product-list" class="grid"></div>
+  </main>
+
+  <!-- reuse cart modal -->
+  <div id="cartModal2" class="modal hidden">
+    <div class="modal-inner">
+      <h3>Your Cart</h3>
+      <div id="cartItems2"></div>
+      <div class="cart-summary">
+        <span>Total:</span>
+        <strong id="cartTotal2">0.00</strong>
+      </div>
+      <div class="modal-actions">
+        <button id="closeCart2" class="btn ghost">Close</button>
+        <button id="checkoutBtn2" class="btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
