@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — AgriMarket</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand"><a href="index.html">AgriMarket</a></div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="advisory.html">Advisory</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="menuToggle4" class="menu-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <label>Name</label>
+      <input id="contactName" required>
+
+      <label>Email</label>
+      <input id="contactEmail" type="email" required>
+
+      <label>Message</label>
+      <textarea id="contactMessage" rows="6" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <div id="contactSuccess" class="notice hidden">Thanks — your message was sent (simulated).</div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
