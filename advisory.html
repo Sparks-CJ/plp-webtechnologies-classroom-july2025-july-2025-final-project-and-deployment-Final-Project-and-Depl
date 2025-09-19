@@ -7,50 +7,92 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container">
-      <div class="brand">
-        <a href="index.html"><img src="images/logo.png" alt="WakulimaHub Logo" class="logo"> WakulimaHub</a>
-      </div>
+      <div class="brand"><a href="index.html">WakulimaHub</a></div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="marketplace.html">Marketplace</a>
         <a href="advisory.html" class="active">Advisory</a>
         <a href="contact.html">Contact</a>
+        <button id="cartBtn" class="btn small">Cart (<span id="cartCount">0</span>)</button>
       </nav>
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main class="container page">
-    <h1>Farming Advisory</h1>
-    <p>Get insights, tips, and peer-to-peer advice from fellow farmers and experts.</p>
+  <!-- ===== Main Content ===== -->
+  <main class="container">
+    <section class="hero advisory-hero">
+      <h1>Farming Advisory</h1>
+      <p>Expert tips, seasonal updates, and sustainable practices to boost your yields.</p>
+    </section>
 
-    <div class="advisory-list">
-      <article class="card">
-        <h4>🌽 Maize Planting Guide</h4>
-        <p>Best practices for maize planting, soil preparation, and pest control.</p>
+    <!-- Tips Section -->
+    <section class="advisory-grid">
+      <article class="advice-card">
+        <h3>🌱 Crop Rotation</h3>
+        <p>Rotate maize with legumes such as beans or groundnuts to restore soil nitrogen and improve long-term fertility.</p>
       </article>
-      <article class="card">
-        <h4>🍵 Tea Farming Tips</h4>
-        <p>Advice on tea pruning, fertilizer application, and harvesting cycles.</p>
+
+      <article class="advice-card">
+        <h3>💧 Water Management</h3>
+        <p>Adopt drip irrigation or mulching to conserve water and keep crops hydrated during dry spells.</p>
       </article>
-      <article class="card">
-        <h4>🥛 Dairy Management</h4>
-        <p>Feeding practices, housing, and veterinary care for healthy dairy cows.</p>
+
+      <article class="advice-card">
+        <h3>🪱 Pest Control</h3>
+        <p>Use integrated pest management (IPM): combine natural predators, organic sprays, and resistant crop varieties.</p>
       </article>
-      <article class="card">
-        <h4>🌱 Fertilizer Use</h4>
-        <p>Guidelines on proper fertilizer application to maximize yield and sustainability.</p>
+
+      <article class="advice-card">
+        <h3>🌾 Post-Harvest Handling</h3>
+        <p>Dry grains properly before storage and use airtight bags to reduce aflatoxin and pest damage.</p>
       </article>
-    </div>
+    </section>
+
+    <!-- Expert Q&A Section -->
+    <section class="expert-advice">
+      <h2>Ask an Expert</h2>
+      <p>Have a farming question? Submit it below and our advisory team will guide you.</p>
+      <form class="advice-form">
+        <label for="farmerName">Your Name</label>
+        <input type="text" id="farmerName" name="farmerName" placeholder="Enter your name">
+
+        <label for="question">Your Question</label>
+        <textarea id="question" name="question" rows="5" placeholder="Type your question..."></textarea>
+
+        <button type="submit" class="btn">Submit Question</button>
+      </form>
+    </section>
   </main>
 
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 WakulimaHub</p>
+      <p>&copy; 2025 WakulimaHub. Built for learning and demo purposes.</p>
     </div>
   </footer>
+
+  <!-- ===== Cart Modal ===== -->
+  <div id="cartModal" class="modal hidden">
+    <div class="modal-inner">
+      <h3>Your Cart</h3>
+      <div id="cartItems"></div>
+      <div class="cart-summary">
+        <span>Total:</span>
+        <strong id="cartTotal">0.00</strong>
+      </div>
+      <div class="modal-actions">
+        <button id="closeCart" class="btn ghost">Close</button>
+        <button id="checkoutBtn" class="btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
 
