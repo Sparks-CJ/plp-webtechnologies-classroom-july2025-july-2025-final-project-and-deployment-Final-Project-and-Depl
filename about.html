@@ -1,13 +1,13 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About Us — WakulimaHub</title>
+  <title>About — WakulimaHub</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container">
       <div class="brand"><a href="index.html">WakulimaHub</a></div>
@@ -17,64 +17,74 @@
         <a href="marketplace.html">Marketplace</a>
         <a href="advisory.html">Advisory</a>
         <a href="contact.html">Contact</a>
-        <button id="cartBtn" class="btn small">Cart (<span id="cartCount">0</span>)</button>
       </nav>
       <button id="menuToggle" class="menu-toggle" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <!-- ===== Main Content ===== -->
-  <main class="container">
+  <main>
     <section class="hero about-hero">
-      <h1>About WakulimaHub</h1>
-      <p>Empowering farmers, connecting buyers, and sharing agricultural knowledge for a sustainable future.</p>
+      <div class="container">
+        <h1>About WakulimaHub</h1>
+        <p>Empowering farmers with access to markets, knowledge, and support for sustainable agriculture.</p>
+      </div>
     </section>
 
-    <section class="about-content">
-      <article>
-        <h2>Our Mission</h2>
-        <p>To bridge the gap between farmers and markets by offering a trusted platform where they can sell produce directly, access advisory services, and grow their agribusiness sustainably.</p>
-      </article>
+    <section class="container about-intro">
+      <h2>Our Story</h2>
+      <p>
+        WakulimaHub was founded with a simple mission: to connect smallholder farmers with buyers, 
+        agricultural experts, and resources that help them thrive. We believe that agriculture is not just 
+        about farming — it’s about building communities, ensuring food security, and creating opportunities.
+      </p>
+    </section>
 
-      <article>
-        <h2>Our Vision</h2>
-        <p>A thriving agricultural ecosystem in Africa where farmers are connected, informed, and prosperous — building food security for all.</p>
-      </article>
+    <section class="container about-values">
+      <h2>What We Stand For</h2>
+      <div class="grid three">
+        <article class="value-card">
+          <h3>Sustainability</h3>
+          <p>Promoting eco-friendly farming practices for long-term growth and resilience.</p>
+        </article>
+        <article class="value-card">
+          <h3>Community</h3>
+          <p>Connecting farmers, buyers, and experts to build stronger agricultural networks.</p>
+        </article>
+        <article class="value-card">
+          <h3>Innovation</h3>
+          <p>Using technology to simplify access to markets and knowledge for every farmer.</p>
+        </article>
+      </div>
+    </section>
 
-      <article>
-        <h2>Core Values</h2>
-        <ul>
-          <li><strong>Trust:</strong> Verified listings and reliable advisory services.</li>
-          <li><strong>Community:</strong> Peer-to-peer support among farmers and buyers.</li>
-          <li><strong>Innovation:</strong> Leveraging technology for smarter farming.</li>
-          <li><strong>Sustainability:</strong> Encouraging eco-friendly and profitable farming practices.</li>
-        </ul>
-      </article>
+    <section class="container about-team">
+      <h2>Meet the Team</h2>
+      <p>Behind WakulimaHub is a dedicated group of individuals passionate about transforming agriculture.</p>
+      <div class="grid three">
+        <div class="team-member">
+          <img src="images/team1.jpg" alt="Team Member">
+          <h4>Jane Doe</h4>
+          <p>Founder & CEO</p>
+        </div>
+        <div class="team-member">
+          <img src="images/team2.jpg" alt="Team Member">
+          <h4>John Smith</h4>
+          <p>Head of Advisory</p>
+        </div>
+        <div class="team-member">
+          <img src="images/team3.jpg" alt="Team Member">
+          <h4>Mary Ann</h4>
+          <p>Marketplace Lead</p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 WakulimaHub. Built for learning and demo purposes.</p>
+      <p>&copy; 2025 WakulimaHub. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- ===== Cart Modal ===== -->
-  <div id="cartModal" class="modal hidden">
-    <div class="modal-inner">
-      <h3>Your Cart</h3>
-      <div id="cartItems"></div>
-      <div class="cart-summary">
-        <span>Total:</span>
-        <strong id="cartTotal">0.00</strong>
-      </div>
-      <div class="modal-actions">
-        <button id="closeCart" class="btn ghost">Close</button>
-        <button id="checkoutBtn" class="btn">Checkout</button>
-      </div>
-    </div>
-  </div>
 
   <script src="js/main.js"></script>
 </body>
