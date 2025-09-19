@@ -1,115 +1,129 @@
-// ====== Mobile Menu Toggle ======
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.querySelector(".main-nav");
-
-if (menuToggle) {
-  menuToggle.addEventListener("click", () => {
-    mainNav.classList.toggle("show");
-  });
-}
-
-// ====== Product Data (Marketplace) ======
+// --- Sample Products ---
 const products = [
-  { id: 1, name: "Maize (50kg bag)", price: 3200, img: "images/maize.jpg" },
-  { id: 2, name: "Tea Leaves (kg)", price: 450, img: "images/tea.jpg" },
-  { id: 3, name: "Fresh Dairy Milk (litre)", price: 60, img: "images/milk.jpg" },
-  { id: 4, name: "Organic Fertilizer (bag)", price: 1500, img: "images/fertilizer.jpg" },
-  { id: 5, name: "Farm Tools Set", price: 2500, img: "images/tools.jpg" }
+  { id: 1, name: "Maize (90kg bag)", price: 2800, category: "maize", img: "images/maize.jpg" },
+  { id: 2, name: "Green Tea Leaves (kg)", price: 400, category: "tea", img: "images/tea.jpg" },
+  { id: 3, name: "Fresh Milk (liter)", price: 60, category: "dairy", img: "images/milk.jpg" },
+  { id: 4, name: "Fertilizer (50kg)", price: 3500, category: "fertilizer", img: "images/fertilizer.jpg" },
+  { id: 5, name: "Maize Flour (2kg)", price: 150, category: "maize", img: "images/flour.jpg" },
+  { id: 6, name: "Processed Tea (packet)", price: 250, category: "tea", img: "images/teapacket.jpg" },
 ];
 
-// ====== Advisory Data ======
-const advisory = [
-  { id: 1, title: "Maize Farming Tips", desc: "Best planting season, pest control and harvesting advice.", img: "images/maize-advice.jpg" },
-  { id: 2, title: "Tea Crop Management", desc: "Guidelines for pruning, plucking cycles and soil care.", img: "images/tea-advice.jpg" },
-  { id: 3, title: "Dairy Cow Care", desc: "Feeding routines, disease management and milk hygiene.", img: "images/dairy-advice.jpg" },
-  { id: 4, title: "Fertilizer Use", desc: "How to apply fertilizer effectively without harming soil.", img: "images/fertilizer-advice.jpg" }
-];
-
-// ====== Render Products ======
-function renderProducts(listId) {
-  const container = document.getElementById(listId);
-  if (container) {
-    container.innerHTML = products.map(p => `
-      <div class="product-card">
-        <img src="${p.img}" alt="${p.name}">
-        <h3>${p.name}</h3>
-        <p class="price">KES ${p.price}</p>
-        <button onclick="addToCart(${p.id})" class="btn">Add to Cart</button>
-      </div>
-    `).join("");
-  }
-}
-
-// ====== Render Advisory ======
-function renderAdvisory(listId) {
-  const container = document.getElementById(listId);
-  if (container) {
-    container.innerHTML = advisory.map(a => `
-      <div class="advisory-card">
-        <img src="${a.img}" alt="${a.title}">
-        <h3>${a.title}</h3>
-        <p>${a.desc}</p>
-        <button class="btn ghost" onclick="alert('Contact an expert for more on ${a.title}')">Learn More</button>
-      </div>
-    `).join("");
-  }
-}
-
-// ====== Cart Logic ======
+// --- Cart State ---
 let cart = [];
 
-function addToCart(id) {
-  const product = products.find(p => p.id === id);
-  cart.push(product);
-  updateCartUI();
-}
-
-function updateCartUI() {
-  const cartCount = document.getElementById("cartCount");
-  const cartItems = document.getElementById("cartItems");
-  const cartTotal = document.getElementById("cartTotal");
-
-  if (cartCount) cartCount.textContent = cart.length;
-
-  if (cartItems) {
-    cartItems.innerHTML = cart.map(item => `
-      <div class="cart-item">
-        ${item.name} - KES ${item.price}
-      </div>
-    `).join("");
-  }
-
-  if (cartTotal) {
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    cartTotal.textContent = `KES ${total}`;
-  }
-}
-
-// ====== Cart Modal ======
+// --- DOM Elements ---
+const productList = document.getElementById("product-list");
+const featuredList = document.getElementById("featured-list");
 const cartBtn = document.getElementById("cartBtn");
 const cartModal = document.getElementById("cartModal");
 const closeCart = document.getElementById("closeCart");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const cartCount = document.getElementById("cartCount");
+const checkoutBtn = document.getElementById("checkoutBtn");
+const filterButtons = document.querySelectorAll(".filter-btn");
 
-if (cartBtn && cartModal && closeCart) {
-  cartBtn.addEventListener("click", () => cartModal.classList.remove("hidden"));
-  closeCart.addEventListener("click", () => cartModal.classList.add("hidden"));
+// --- Render Products ---
+function renderProducts(list, targetId) {
+  const container = document.getElementById(targetId);
+  if (!container) return;
+
+  container.innerHTML = "";
+  list.forEach(p => {
+    const item = document.createElement("div");
+    item.className = "product-card";
+    item.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>KES ${p.price.toLocaleString()}</p>
+      <button class="btn small" onclick="addToCart(${p.id})">Add to Cart</button>
+    `;
+    container.appendChild(item);
+  });
 }
 
-// ====== Checkout Simulation ======
-const checkoutBtn = document.getElementById("checkoutBtn");
-if (checkoutBtn) {
+// --- Filter Products ---
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const category = btn.dataset.category;
+    if (category === "all") {
+      renderProducts(products, "product-list");
+    } else {
+      renderProducts(products.filter(p => p.category === category), "product-list");
+    }
+  });
+});
+
+// --- Cart Functions ---
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  updateCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+}
+
+function updateCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+  let count = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.qty;
+    count += item.qty;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+    row.innerHTML = `
+      <span>${item.name} (x${item.qty})</span>
+      <strong>KES ${(item.price * item.qty).toLocaleString()}</strong>
+      <button class="btn small ghost" onclick="removeFromCart(${item.id})">Remove</button>
+    `;
+    cartItems.appendChild(row);
+  });
+
+  cartTotal.textContent = `KES ${total.toLocaleString()}`;
+  cartCount.textContent = count;
+}
+
+// --- Modal Handling ---
+if (cartBtn && cartModal) {
+  cartBtn.addEventListener("click", () => {
+    cartModal.classList.remove("hidden");
+  });
+
+  closeCart.addEventListener("click", () => {
+    cartModal.classList.add("hidden");
+  });
+
   checkoutBtn.addEventListener("click", () => {
-    alert("Checkout successful! (Simulation)");
+    alert("Checkout process simulated. Thank you for using WakulimaHub!");
     cart = [];
-    updateCartUI();
+    updateCart();
     cartModal.classList.add("hidden");
   });
 }
 
-// ====== Initialize ======
-document.addEventListener("DOMContentLoaded", () => {
-  renderProducts("featured-list");
-  renderProducts("product-list");
-  renderAdvisory("advisory-list");
-});
+// --- Menu Toggle (Mobile) ---
+const menuToggle = document.getElementById("menuToggle");
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const nav = document.querySelector(".main-nav");
+    nav.classList.toggle("open");
+  });
+}
+
+// --- Initial Render ---
+renderProducts(products, "product-list");   // Marketplace
+renderProducts(products.slice(0, 3), "featured-list"); // Homepage
+
 
