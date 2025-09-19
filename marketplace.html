@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container">
       <div class="brand"><a href="index.html">WakulimaHub</a></div>
@@ -23,60 +22,32 @@
     </div>
   </header>
 
-  <!-- ===== Main Content ===== -->
   <main class="container">
-    <section class="hero marketplace-hero">
-      <h1>Marketplace</h1>
-      <p>Buy fresh produce directly from local farmers.</p>
+    <h1>Marketplace</h1>
+    <p>Browse farm produce and inputs. Add items to your cart and grow your agribusiness with ease.</p>
+
+    <!-- Product Categories -->
+    <section class="categories">
+      <button class="btn filter-btn" data-category="all">All</button>
+      <button class="btn filter-btn" data-category="maize">Maize</button>
+      <button class="btn filter-btn" data-category="tea">Tea</button>
+      <button class="btn filter-btn" data-category="dairy">Dairy</button>
+      <button class="btn filter-btn" data-category="fertilizer">Fertilizer</button>
     </section>
 
-    <section class="products-grid">
-      <!-- Product 1 -->
-      <div class="product-card">
-        <img src="images/maize.jpg" alt="Maize">
-        <h3>Maize (90kg bag)</h3>
-        <p>High-quality dry maize, ready for milling.</p>
-        <span class="price">KES 4,200</span>
-        <button class="btn add-to-cart" data-name="Maize (90kg bag)" data-price="4200">Add to Cart</button>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-        <img src="images/tomatoes.jpg" alt="Tomatoes">
-        <h3>Tomatoes (crate)</h3>
-        <p>Fresh red tomatoes, farm-direct supply.</p>
-        <span class="price">KES 2,000</span>
-        <button class="btn add-to-cart" data-name="Tomatoes (crate)" data-price="2000">Add to Cart</button>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <img src="images/kale.jpg" alt="Kale">
-        <h3>Kale (bundle)</h3>
-        <p>Organic sukuma wiki bundles, harvested daily.</p>
-        <span class="price">KES 50</span>
-        <button class="btn add-to-cart" data-name="Kale (bundle)" data-price="50">Add to Cart</button>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <img src="images/milk.jpg" alt="Fresh Milk">
-        <h3>Fresh Milk (liter)</h3>
-        <p>Farm-fresh whole milk, delivered chilled.</p>
-        <span class="price">KES 80</span>
-        <button class="btn add-to-cart" data-name="Fresh Milk (liter)" data-price="80">Add to Cart</button>
-      </div>
+    <!-- Product Grid -->
+    <section id="product-list" class="grid products">
+      <!-- Products injected from main.js -->
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 WakulimaHub. Built for learning and demo purposes.</p>
+      <p>&copy; 2025 WakulimaHub. Empowering farmers with markets and knowledge.</p>
     </div>
   </footer>
 
-  <!-- ===== Cart Modal ===== -->
+  <!-- Cart Modal -->
   <div id="cartModal" class="modal hidden">
     <div class="modal-inner">
       <h3>Your Cart</h3>
@@ -95,3 +66,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
