@@ -3,40 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact — AgriMarket</title>
+  <title>Contact — WakulimaHub</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <div class="brand"><a href="index.html">AgriMarket</a></div>
+      <div class="brand">
+        <a href="index.html"><img src="images/logo.png" alt="WakulimaHub Logo" class="logo"> WakulimaHub</a>
+      </div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="marketplace.html">Marketplace</a>
         <a href="advisory.html">Advisory</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="active">Contact</a>
       </nav>
-      <button id="menuToggle4" class="menu-toggle" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container page">
     <h1>Contact Us</h1>
-    <form id="contactForm">
-      <label>Name</label>
-      <input id="contactName" required>
+    <p>We’d love to hear from you! Reach us through the form below.</p>
 
-      <label>Email</label>
-      <input id="contactEmail" type="email" required>
+    <form id="contactForm" class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
 
-      <label>Message</label>
-      <textarea id="contactMessage" rows="6" required></textarea>
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" required></textarea>
 
       <button type="submit" class="btn">Send Message</button>
     </form>
-    <div id="contactSuccess" class="notice hidden">Thanks — your message was sent (simulated).</div>
+
+    <div id="formResponse" class="hidden"></div>
   </main>
 
-  <script src="js/main.js"></script>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 WakulimaHub</p>
+    </div>
+  </footer>
+
+  <script>
+    // simple fake form handler
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('formResponse').classList.remove('hidden');
+      document.getElementById('formResponse').innerText = "✅ Thanks for contacting WakulimaHub. We'll reply soon!";
+      this.reset();
+    });
+  </script>
 </body>
 </html>
+
