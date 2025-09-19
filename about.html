@@ -3,45 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About — WakulimaHub</title>
+  <title>About Us — WakulimaHub</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container">
-      <div class="brand">
-        <a href="index.html"><img src="images/logo.png" alt="WakulimaHub Logo" class="logo"> WakulimaHub</a>
-      </div>
+      <div class="brand"><a href="index.html">WakulimaHub</a></div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
         <a href="marketplace.html">Marketplace</a>
         <a href="advisory.html">Advisory</a>
         <a href="contact.html">Contact</a>
+        <button id="cartBtn" class="btn small">Cart (<span id="cartCount">0</span>)</button>
       </nav>
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main class="container page">
-    <h1>About WakulimaHub</h1>
-    <p><strong>WakulimaHub</strong> is a peer-to-peer agriculture platform that connects farmers, buyers, and advisors.  
-    Our mission is to empower smallholder farmers by giving them access to markets and farming knowledge in one place.</p>
+  <!-- ===== Main Content ===== -->
+  <main class="container">
+    <section class="hero about-hero">
+      <h1>About WakulimaHub</h1>
+      <p>Empowering farmers, connecting buyers, and sharing agricultural knowledge for a sustainable future.</p>
+    </section>
 
-    <h2>Our Vision</h2>
-    <p>To build sustainable farming communities where knowledge and trade flow freely, improving livelihoods and food security.</p>
+    <section class="about-content">
+      <article>
+        <h2>Our Mission</h2>
+        <p>To bridge the gap between farmers and markets by offering a trusted platform where they can sell produce directly, access advisory services, and grow their agribusiness sustainably.</p>
+      </article>
 
-    <h2>What We Offer</h2>
-    <ul>
-      <li>A digital marketplace for buying and selling farm produce</li>
-      <li>Access to farming advisory and shared knowledge</li>
-      <li>A trusted network of local farmers and buyers</li>
-    </ul>
+      <article>
+        <h2>Our Vision</h2>
+        <p>A thriving agricultural ecosystem in Africa where farmers are connected, informed, and prosperous — building food security for all.</p>
+      </article>
+
+      <article>
+        <h2>Core Values</h2>
+        <ul>
+          <li><strong>Trust:</strong> Verified listings and reliable advisory services.</li>
+          <li><strong>Community:</strong> Peer-to-peer support among farmers and buyers.</li>
+          <li><strong>Innovation:</strong> Leveraging technology for smarter farming.</li>
+          <li><strong>Sustainability:</strong> Encouraging eco-friendly and profitable farming practices.</li>
+        </ul>
+      </article>
+    </section>
   </main>
 
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 WakulimaHub</p>
+      <p>&copy; 2025 WakulimaHub. Built for learning and demo purposes.</p>
     </div>
   </footer>
+
+  <!-- ===== Cart Modal ===== -->
+  <div id="cartModal" class="modal hidden">
+    <div class="modal-inner">
+      <h3>Your Cart</h3>
+      <div id="cartItems"></div>
+      <div class="cart-summary">
+        <span>Total:</span>
+        <strong id="cartTotal">0.00</strong>
+      </div>
+      <div class="modal-actions">
+        <button id="closeCart" class="btn ghost">Close</button>
+        <button id="checkoutBtn" class="btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
+
