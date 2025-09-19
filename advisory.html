@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Advisory — AgriMarket</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand"><a href="index.html">AgriMarket</a></div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="advisory.html">Advisory</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="menuToggle3" class="menu-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Expert Advisory</h1>
+
+    <section class="articles">
+      <article class="article">
+        <h3>Soil Preparation 101</h3>
+        <p>Good soil is the foundation of healthy crops. Start with pH testing and add organic matter.</p>
+      </article>
+      <article class="article">
+        <h3>Best Practices for Irrigation</h3>
+        <p>Drip irrigation can save water and deliver nutrients efficiently.</p>
+      </article>
+    </section>
+
+    <section class="ask-expert">
+      <h2>Ask an Expert</h2>
+      <form id="advisoryForm">
+        <label for="name">Full name</label>
+        <input id="advName" required>
+
+        <label for="phone">Phone</label>
+        <input id="advPhone" required>
+
+        <label for="question">Question</label>
+        <textarea id="advQuestion" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Send Question</button>
+      </form>
+      <div id="advSuccess" class="notice hidden">Your question has been sent — an expert will reach out (simulated).</div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
