@@ -7,56 +7,89 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container">
-      <div class="brand">
-        <a href="index.html"><img src="images/logo.png" alt="WakulimaHub Logo" class="logo"> WakulimaHub</a>
-      </div>
+      <div class="brand"><a href="index.html">WakulimaHub</a></div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="marketplace.html">Marketplace</a>
         <a href="advisory.html">Advisory</a>
         <a href="contact.html" class="active">Contact</a>
+        <button id="cartBtn" class="btn small">Cart (<span id="cartCount">0</span>)</button>
       </nav>
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main class="container page">
-    <h1>Contact Us</h1>
-    <p>We’d love to hear from you! Reach us through the form below.</p>
+  <!-- ===== Main Content ===== -->
+  <main class="container">
+    <section class="hero contact-hero">
+      <h1>Contact Us</h1>
+      <p>We’d love to hear from you! Get in touch for inquiries, support, or partnership opportunities.</p>
+    </section>
 
-    <form id="contactForm" class="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" required>
+    <section class="contact-grid">
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-      <label for="message">Message</label>
-      <textarea id="message" rows="5" required></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Type your message..." required></textarea>
 
-      <button type="submit" class="btn">Send Message</button>
-    </form>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
 
-    <div id="formResponse" class="hidden"></div>
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p><strong>📍 Address:</strong> Nairobi, Kenya</p>
+        <p><strong>📞 Phone:</strong> +254 712 345 678</p>
+        <p><strong>✉️ Email:</strong> support@wakulimahub.com</p>
+
+        <h3>Follow Us</h3>
+        <p>
+          <a href="#">🌐 Facebook</a><br>
+          <a href="#">🐦 Twitter</a><br>
+          <a href="#">📸 Instagram</a>
+        </p>
+      </div>
+    </section>
   </main>
 
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 WakulimaHub</p>
+      <p>&copy; 2025 WakulimaHub. Built for learning and demo purposes.</p>
     </div>
   </footer>
 
-  <script>
-    // simple fake form handler
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      document.getElementById('formResponse').classList.remove('hidden');
-      document.getElementById('formResponse').innerText = "✅ Thanks for contacting WakulimaHub. We'll reply soon!";
-      this.reset();
-    });
-  </script>
+  <!-- ===== Cart Modal ===== -->
+  <div id="cartModal" class="modal hidden">
+    <div class="modal-inner">
+      <h3>Your Cart</h3>
+      <div id="cartItems"></div>
+      <div class="cart-summary">
+        <span>Total:</span>
+        <strong id="cartTotal">0.00</strong>
+      </div>
+      <div class="modal-actions">
+        <button id="closeCart" class="btn ghost">Close</button>
+        <button id="checkoutBtn" class="btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
+
 
