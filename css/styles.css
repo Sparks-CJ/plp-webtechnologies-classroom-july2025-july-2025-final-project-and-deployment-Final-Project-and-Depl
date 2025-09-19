@@ -1,0 +1,33 @@
+/* Simple responsive design + animations for AgriMarket starter */
+:root{
+  --accent:#2f7a2f;
+  --accent-2:#4caf50;
+  --bg:#f6f8f5;
+  --muted:#6b6b6b;
+  --container:1100px;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:#111}
+.container{max-width:var(--container);margin:0 auto;padding:1rem}
+.site-header{background:white;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.brand a{text-decoration:none;font-weight:700;color:var(--accent)}
+.main-nav a{margin:0 .6rem;color:#333;text-decoration:none}
+.menu-toggle{display:none;border:0;background:transparent;font-size:1.2rem}
+
+.hero{padding:3rem 1rem;text-align:center}
+.hero h1{font-size:2.2rem;margin:.2rem 0}
+.hero p{color:var(--muted)}
+.hero .btn{margin:.6rem}
+
+.btn{background:var(--accent-2);color:white;border:0;padding:.6rem 1rem;border-radius:8px;cursor:pointer;transition:transform .15s ease, box-shadow .15s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,0.08)}
+.btn.ghost{background:transparent;color:var(--accent-2);border:2px solid var(--accent-2)}
+.small{padding:.25rem .6rem;font-size:.9rem}
+
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:2rem 0}
+.feature{background:white;padding:1.2rem;border-radius:10px;transition:transform .3s, box-shadow .3s}
+.feature:hover{transform:translateY(-8px);box-shadow:0 12px 26px rgba(0,0,0,0.08)}
+
+.preview .grid,.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{background:white;padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04);position:rela
